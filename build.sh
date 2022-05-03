@@ -1,9 +1,9 @@
 #!/bin/bash
 # rebuild RedisJSON image
 
-REDIS_VER=6.2.6
-REJSON_VER=v2.0.7
-RUST_VER=1.59.0
+REDIS_VER=6.2.7
+REJSON_VER=v2.0.8
+RUST_VER=1.60.0
 
 if [[ $(systemctl is-active docker) != 'active' ]]; then
     echo "starting docker"
