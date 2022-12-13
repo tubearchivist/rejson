@@ -15,6 +15,7 @@ RUN git clone --depth 1 --branch ${REJSON_VER} https://github.com/RedisJSON/Redi
 
 WORKDIR RedisJSON
 
+COPY config .cargo/config
 RUN cargo build --release
 
 # run module in official redis
