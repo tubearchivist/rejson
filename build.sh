@@ -1,15 +1,16 @@
 #!/bin/bash
 # rebuild RedisJSON image
 
-REDIS_VER=7.0.6
-REJSON_VER=v2.4.2
-RUST_VER=1.65.0
+REDIS_VER=7.0.7
+REJSON_VER=v2.4.3
+RUST_VER=1.66.0
 
 if [[ $(systemctl is-active docker) != 'active' ]]; then
     echo "starting docker"
     sudo systemctl start docker
 fi
 
+sudo docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 sudo docker buildx build \
     --build-arg RUST_VER="$RUST_VER" \
     --build-arg REDIS_VER="$REDIS_VER" \
